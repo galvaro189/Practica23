@@ -10,10 +10,12 @@ if (isset($_GET["publi"]) and isset($_GET["voto"])) {
         echo $idusuario;
         $query = $mysql->query('INSERT INTO puntuaciones VALUES ("'.$_GET["voto"].'",'.$idusuario.','.$_GET["publi"].')');
         $error=$mysql->errno;
+        echo $error;
         if ($error == '1062') {
             header('location:http://localhost/IAW/Practica23/puntuar.php?idpubli='.$_GET["publi"].'&error=1');
         }
-        header('location:muroajeno.php?idpubli='.$_GET["publi"]);
+        else {header('location:publicacionajena.php?idpubli='.$_GET["publi"]);}
+
     }
 
 }
