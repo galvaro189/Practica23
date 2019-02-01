@@ -28,33 +28,24 @@ if (!isset($_POST["opcion"]) or !isset($_POST["usuario"])) {
     } else {
         $query = $mysql->query('SELECT * FROM usuarios;');
         $usuario = $query->fetch_assoc();
+        if (!isset($usuario)) {
+            echo '<p> No se han encontrado usuarios</p>';
+        }
         while ($usuario) {
             if ($tipo == 'nombre') {
                 if ($usuariobuscar == $usuario["nombre"]) {
                     echo '<a href="muroajeno.php?idusuario='.$usuario["id_usuario"].'">'.$usuario["nombre"].'</a>';
-                    $error = 0;
-                } else {
-                    $error = 1;
                 }
             } elseif ($tipo == 'apellido1') {
                 if ($usuariobuscar == $usuario["apellido1"]) {
                     echo '<a href="muroajeno.php?idusuario='.$usuario["id_usuario"].'">'.$usuario["nombre"].'</a>';
-                    $error = 0;
-                } else {
-                    $error = 1;
                 }
             } elseif ($tipo == 'id_usuario') {
                 if ($usuariobuscar == $usuario["login"]) {
                     echo '<a href="muroajeno.php?idusuario='.$usuario["id_usuario"].'">'.$usuario["nombre"].'</a>';
-                    $error = 0;
-                } else {
-                    $error = 1;
                 }
             }
             $usuario = $query->fetch_assoc();
-        }
-        if($error==1) {
-            echo '<p> No se han encontrado usuarios</p>';
         }
     }
 

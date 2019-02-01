@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION["usuario"]) ) {
+    header('location:muro.php');
+}
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -16,5 +22,15 @@
     <a href="registrate.php" class="btn btn-primary">Registrate</a>
     <a href="login.php" class="btn btn-primary">Inicia Sesion</a>
 </main>
+<br><br><br>
+<footer>
+    <?php
+    if (isset($_GET["error"])) {
+        if ($_GET["error"]==0) {
+            echo '<p class="text-center alert-success">Registro completado!</p>';
+        }
+    }
+    ?>
+</footer>
 </body>
 </html>

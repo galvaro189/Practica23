@@ -50,6 +50,7 @@ if (!isset($_SESSION["usuario"])) {
 </header>
 <nav class="container text-right">
     <a class="btn btn-primary" href="buscar.php" style="color: white; margin-bottom: 20px;">Buscar usuarios</a>
+    <a href="cerrarsesion.php" class="btn btn-primary" style="margin-bottom: 20px;">Cerrar Sesion</a>
 </nav>
 <main class="text-center">
     <?php

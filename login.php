@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION["usuario"]) ) {
+    header('location:muro.php');
+}
+?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">

@@ -14,7 +14,7 @@ if (isset($_POST["nombre"]) && isset($_POST["apellido1"]) && isset($_POST["apell
         }
         else {
         $query=$mysql->query("INSERT INTO usuarios VALUES(NULL,'$nombre','$apellido1','$apellido2','$login','$pass')");
-        header('location:index.php');
+        header('location:index.php?error=0');
         }
     }
     else {
